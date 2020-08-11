@@ -26,7 +26,7 @@ const dems = {
 
 const getData = async (zip) => {
   const data = {}
-  const $ = cheerio.load(await get(`https://www.radioreference.com/apps/db/?action=searchZip&from=db&zip=${zip}`))
+  const $ = cheerio.load(await get(`https://www.radioreference.com/apps/db/?aid=${zip}`))
   $('table.w1p.rrtable').each((i, table) => {
     const $table = $(table)
     const t = $table.parent().prev().prev().text().trim()
